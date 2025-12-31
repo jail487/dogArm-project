@@ -1,0 +1,17 @@
+00:29:12 **** Incremental Build of configuration Debug for project doghead_arm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/nidec_motor_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/nidec_motor_driver.d" -MT"Core/Src/nidec_motor_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/nidec_motor_driver.o"
+arm-none-eabi-g++ -o "doghead_arm.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\88698\OneDrive - NTHU\nthu\OneDrive - NTHU\桌面\DogHead\Firmware\doghead_arm\STM32F446RETX_FLASH.ld" -Wl,-Map="doghead_arm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: doghead_arm.elf
+ 
+arm-none-eabi-size  doghead_arm.elf 
+arm-none-eabi-objdump -h -S doghead_arm.elf  > "doghead_arm.list"
+   text	   data	    bss	    dec	    hex	filename
+  26068	     96	   2528	  28692	   7014	doghead_arm.elf
+Finished building: default.size.stdout
+ 
+Finished building: doghead_arm.list
+ 
+
+00:29:15 Build Finished. 0 errors, 0 warnings. (took 2s.984ms)
+

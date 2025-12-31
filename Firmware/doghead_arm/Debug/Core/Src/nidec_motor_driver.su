@@ -1,0 +1,13 @@
+../Core/Src/nidec_motor_driver.c:32:17:Get_Timer_Input_Clock	16	static
+../Core/Src/nidec_motor_driver.c:40:13:Impl_Freq13Pin_SetSpeed	40	static
+../Core/Src/nidec_motor_driver.c:69:13:Impl_Freq13Pin_SetEnable	16	static
+../Core/Src/nidec_motor_driver.c:90:13:Impl_PWM8Pin_SetSpeed	40	static
+../Core/Src/nidec_motor_driver.c:108:13:Impl_PWM8Pin_SetEnable	24	static
+../Core/Src/nidec_motor_driver.c:131:6:Motor_Init	16	static
+../Core/Src/nidec_motor_driver.c:158:6:Motor_Update	48	static
+../Core/Src/nidec_motor_driver.c:182:7:Motor_GetAngle	24	static
+../Core/Src/nidec_motor_driver.c:199:6:Motor_ResetEncoder	16	static
+../Core/Src/nidec_motor_driver.c:207:6:Motor_SetSpeed	16	static
+../Core/Src/nidec_motor_driver.c:214:6:Motor_Start	16	static
+../Core/Src/nidec_motor_driver.c:222:6:Motor_Stop	16	static
+../Core/Src/nidec_motor_driver.c:234:6:Motor_System_Config	8	static

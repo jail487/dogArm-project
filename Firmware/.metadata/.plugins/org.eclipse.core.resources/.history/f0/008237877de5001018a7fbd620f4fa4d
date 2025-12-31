@@ -1,0 +1,70 @@
+/**
+ * @file robot_arm_core.cpp
+ * @brief 機器手臂高層控制邏輯 (C++)
+ */
+
+#include "robot_arm_wrapper.h" // 包含給 main.c 呼叫的介面
+#include "pid_controller.hpp"  // 包含 PI 演算法
+
+// 引用 C 語言的驅動程式
+// 因為 nidec_motor_driver.h 裡面已經有 extern "C"，所以這裡直接 include 即可
+#include "nidec_motor_driver.h"
+
+// ==========================================================
+// 定義控制器物件 (全域)
+// ==========================================================
+
+// 關節 1 (大臂 - 13Pin 馬達): Kp=5.0, Ki=0.1, Kd=0.0, MaxRPM=3000
+PositionController joint1_pid(5.0f, 0.1f, 0.0f, 3000.0f);
+
+// 關節 2 (小臂 - 8Pin 馬達): Kp=8.0, Ki=0.2, Kd=0.0, MaxRPM=4000
+PositionController joint2_pid(8.0f, 0.2f, 0.0f, 4000.0f);
+
+// 目標角度 (由外部或路徑規劃設定)
+float target_angle_j1 = 0.0f;
+float target_angle_j2 = 0.0f;
+
+
+// ==========================================================
+// C++ 實作函式
+// ==========================================================
+
+// 1. 初始化
+extern "C" void Robot_Init(void) {
+    // 初始化底層馬達 (呼叫 C 驅動)
+    Motor_System_Config(); // 這是我們在 nidec_motor_driver.c 寫好的
+
+    // 啟動馬達 (Enable)
+    Motor_Start(&motor_joint_13pin);
+    Motor_Start(&motor_joint_8pin);
+
+    // 重置 PID 狀態
+    joint1_pid.reset();
+    joint2_pid.reset();
+}
+
+// 2. 控制迴圈 (建議 1ms~10ms 呼叫一次)
+extern "C" void Robot_Loop(float dt_seconds) {
+    // --- 步驟 A: 讀取底層 Encoder ---
+    Motor_Update(&motor_joint_13pin);
+    Motor_Update(&motor_joint_8pin);
+
+    float current_angle_j1 = Motor_GetAngle(&motor_joint_13pin);
+    float current_angle_j2 = Motor_GetAngle(&motor_joint_8pin);
+
+    // --- 步驟 B: PID 計算 ---
+    // 計算出這一刻應該給馬達多少 RPM 才能靠近目標
+    float rpm_command_j1 = joint1_pid.update(target_angle_j1, current_angle_j1, dt_seconds);
+    float rpm_command_j2 = joint2_pid.update(target_angle_j2, current_angle_j2, dt_seconds);
+
+    // --- 步驟 C: 寫入底層馬達 ---
+    // 將計算出的 RPM 轉成整數並發送給驅動層
+    Motor_SetSpeed(&motor_joint_13pin, (int32_t)rpm_command_j1);
+    Motor_SetSpeed(&motor_joint_8pin, (int32_t)rpm_command_j2);
+}
+
+// 3. 設定目標 API
+extern "C" void Robot_SetTarget(float angle1, float angle2) {
+    target_angle_j1 = angle1;
+    target_angle_j2 = angle2;
+}
