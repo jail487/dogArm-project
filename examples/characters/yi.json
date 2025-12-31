@@ -1,0 +1,16 @@
+{
+  "character": "一",
+  "pinyin": "yi",
+  "meaning": "one",
+  "stroke_count": 1,
+  "strokes": [
+    {
+      "stroke_number": 1,
+      "type": "horizontal",
+      "points": [
+        [30, 100],
+        [170, 100]
+      ]
+    }
+  ]
+}

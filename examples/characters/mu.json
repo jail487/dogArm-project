@@ -1,0 +1,40 @@
+{
+  "character": "木",
+  "pinyin": "mu",
+  "meaning": "tree/wood",
+  "stroke_count": 4,
+  "strokes": [
+    {
+      "stroke_number": 1,
+      "type": "horizontal",
+      "points": [
+        [50, 60],
+        [150, 60]
+      ]
+    },
+    {
+      "stroke_number": 2,
+      "type": "vertical",
+      "points": [
+        [100, 40],
+        [100, 180]
+      ]
+    },
+    {
+      "stroke_number": 3,
+      "type": "diagonal_left",
+      "points": [
+        [50, 120],
+        [80, 160]
+      ]
+    },
+    {
+      "stroke_number": 4,
+      "type": "diagonal_right",
+      "points": [
+        [150, 120],
+        [120, 160]
+      ]
+    }
+  ]
+}
