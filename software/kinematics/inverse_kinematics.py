@@ -95,9 +95,13 @@ class InverseKinematics:
         theta1_rad = np.radians(theta1)
         theta2_rad = np.radians(theta2)
         
-        # Calculate position
+        # For a double parallel linkage mechanism
+        # This is a simplified implementation - adjust based on your exact mechanism geometry
+        # For a simple 2-link configuration as a starting point:
         x = self.l1 * np.cos(theta1_rad) + self.l2 * np.cos(theta2_rad)
         y = self.l1 * np.sin(theta1_rad) + self.l2 * np.sin(theta2_rad)
+        
+        # NOTE: For true parallel linkage, modify these equations based on your specific geometry
         
         return (x, y)
     

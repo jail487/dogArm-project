@@ -29,6 +29,10 @@ Communication comm;
 bool isHomed = false;
 bool isMoving = false;
 
+// Forward declarations
+void processCommand(String cmd);
+bool parseCoordinates(String params, float &x, float &y, float &z);
+
 void setup() {
     // Initialize serial communication
     Serial.begin(SERIAL_BAUDRATE);

@@ -151,6 +151,12 @@ class CalligraphyPlanner:
         Returns:
             Interpolated path
         """
+        if not path:
+            return []
+        
+        if len(path) == 1:
+            return path.copy()
+        
         interpolated = []
         
         for i in range(len(path) - 1):

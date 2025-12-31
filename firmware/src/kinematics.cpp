@@ -61,10 +61,13 @@ void Kinematics::forwardKinematics(float theta1, float theta2, float &x, float &
     float theta1Rad = theta1 * PI / 180.0;
     float theta2Rad = theta2 * PI / 180.0;
     
-    // For a simple 2-link arm
-    // This is simplified - actual implementation depends on mechanism
+    // For a double parallel linkage mechanism
+    // This is a simplified implementation - adjust based on your exact mechanism geometry
+    // For a simple 2-link configuration as a starting point:
     x = linkLength1 * cos(theta1Rad) + linkLength2 * cos(theta2Rad);
     y = linkLength1 * sin(theta1Rad) + linkLength2 * sin(theta2Rad);
+    
+    // NOTE: For true parallel linkage, modify these equations based on your specific geometry
 }
 
 bool Kinematics::isInWorkspace(float x, float y) {
