@@ -9,6 +9,8 @@
 ### Overview
 dogArm is a robotic arm project designed to write Chinese calligraphy (Kaishu/Regular Script) using a double parallel linkage mechanism. This repository contains both firmware for embedded control and software for motion planning and coordination.
 
+**⚠️ Important**: This is a starter template with placeholder kinematics. You MUST customize the kinematics equations for your specific parallel linkage mechanism. See [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) for details.
+
 ### Project Structure
 ```
 dogArm-project/
@@ -46,12 +48,16 @@ dogArm-project/
 ### Quick Start
 See [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md) for detailed setup instructions.
 
+**Important**: Before using, read [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) to understand current limitations and required customizations.
+
 ---
 
 ## <a name="chinese"></a>中文
 
 ### 專案概述
 dogArm 是一個基於雙平行連桿機構的機械臂專案，設計用於書寫中文書法（楷書）。本儲存庫包含嵌入式控制的韌體以及運動規劃和協調的軟體。
+
+**⚠️ 重要提示**：這是一個包含佔位運動學的起始模板。您必須為您的特定平行連桿機構自訂運動學方程式。詳見 [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md)。
 
 ### 專案結構
 ```
@@ -89,6 +95,8 @@ dogArm-project/
 
 ### 快速開始
 詳細的設定說明請參閱 [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)。
+
+**重要提示**：使用前，請閱讀 [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) 以了解目前的限制和必要的自訂設定。
 
 ---
 
