@@ -1,0 +1,6 @@
+../Core/Src/motor_speed_test.c:17:5:_write	24	static
+../Core/Src/motor_speed_test.c:25:6:Test_PrintMotorSpeed	56	static
+../Core/Src/motor_speed_test.c:61:6:Test_StepResponse	88	static
+../Core/Src/motor_speed_test.c:96:6:Test_SingleMotor	88	static
+../Core/Src/motor_speed_test.c:123:6:Test_EncoderDirection	80	static
+../Core/Src/motor_speed_test.c:160:6:Run_Motor_Speed_Tests	8	static

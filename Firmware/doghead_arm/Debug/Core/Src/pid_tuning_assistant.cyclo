@@ -1,0 +1,10 @@
+../Core/Src/pid_tuning_assistant.c:64:6:TestLog_Start	1
+../Core/Src/pid_tuning_assistant.c:73:6:TestLog_Record	2
+../Core/Src/pid_tuning_assistant.c:92:6:TestLog_Stop_And_Export	2
+../Core/Src/pid_tuning_assistant.c:117:22:Evaluate_Performance	18
+../Core/Src/pid_tuning_assistant.c:229:6:Print_Performance_Report	10
+../Core/Src/pid_tuning_assistant.c:282:22:Auto_Test_StepResponse	3
+../Core/Src/pid_tuning_assistant.c:327:22:Auto_Test_SineTracking	3
+../Core/Src/pid_tuning_assistant.c:372:6:Scan_Kp_Parameter	6
+../Core/Src/pid_tuning_assistant.c:420:6:Run_Comprehensive_Tuning_Test	1
+../Core/Src/pid_tuning_assistant.c:458:6:Interactive_Tuning_Assistant	1

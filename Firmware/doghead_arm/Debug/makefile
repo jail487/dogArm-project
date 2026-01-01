@@ -9,6 +9,10 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
+-include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -84,8 +88,8 @@ all: main-build
 main-build: doghead_arm.elf secondary-outputs
 
 # Tool invocations
-doghead_arm.elf doghead_arm.map: $(OBJS) $(USER_OBJS) C:\Users\88698\OneDrive\ -\ NTHU\nthu\OneDrive\ -\ NTHU\桌面\DogHead\Firmware\doghead_arm\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "doghead_arm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\88698\OneDrive - NTHU\nthu\OneDrive - NTHU\桌面\DogHead\Firmware\doghead_arm\STM32F446RETX_FLASH.ld" -Wl,-Map="doghead_arm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+doghead_arm.elf doghead_arm.map: $(OBJS) $(USER_OBJS) /home/jail487/doghead/dogArm-project/Firmware/doghead_arm/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "doghead_arm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/jail487/doghead/dogArm-project/Firmware/doghead_arm/STM32F446RETX_FLASH.ld" -Wl,-Map="doghead_arm.map" -Wl,--gc-sections -static -L"/home/jail487/doghead/dogArm-project/Firmware/doghead_arm/micro_ros_stm32cubemx_utils/microros_static_library/libmicroros" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
